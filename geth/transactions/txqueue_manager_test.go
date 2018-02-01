@@ -2,6 +2,7 @@ package transactions
 
 import (
 	"context"
+	"fmt"
 	"math/big"
 	"sync"
 	"testing"
@@ -111,6 +112,7 @@ func (s *TxQueueTestSuite) TestCompleteTransaction() {
 
 	err = txQueueManager.WaitForTransaction(tx)
 	s.NoError(err)
+	fmt.Println("foo")
 	// Check that error is assigned to the transaction.
 	s.NoError(tx.Err)
 	// Transaction should be already removed from the queue.
